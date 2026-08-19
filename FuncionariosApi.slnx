@@ -1,7 +1,17 @@
 <Solution>
-  <Project Path="01-Presentation/Presentation.csproj" />
-  <Project Path="02-Application/Application.csproj" />
-  <Project Path="03-Infrastructure/Infrastructure.csproj" />
-  <Project Path="04-Domain/Domain.csproj" />
-  <Project Path="05-Tests/Testes.csproj" />
+  <Project Path="01-Presentation/Presentation.csproj">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
+  <Project Path="02-Application/Application.csproj">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
+  <Project Path="03-Infrastructure/Infrastructure.csproj">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
+  <Project Path="04-Domain/Domain.csproj">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
+  <Project Path="05-Tests/Testes.csproj">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
 </Solution>
