@@ -10,6 +10,7 @@ namespace _04_Domain.Entities
         public string Name { get; set; }
         public decimal Salario { get; set; }
         public string Cargo { get; set; }
+        public string Departamento { get; set; }
         public bool Ativo { get; set; } = true;
     }
 }
