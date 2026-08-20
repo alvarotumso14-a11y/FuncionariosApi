@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
-    public class FuncionarioRepository : IFuncionarioRepositorio
+    public class FuncionarioRepository : IFuncionarioRepository
     {
         private readonly AppDbContext _context;
 

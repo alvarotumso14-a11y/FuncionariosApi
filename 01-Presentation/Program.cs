@@ -23,7 +23,7 @@ builder.Services.AddOpenApi("v1", options =>
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<IFuncionarioRepositorio, FuncionarioRepository>();
+builder.Services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
 builder.Services.AddScoped<IFuncionarioService, FuncionarioService>();
 
 var app = builder.Build();

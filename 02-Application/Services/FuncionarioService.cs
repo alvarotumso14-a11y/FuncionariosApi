@@ -10,9 +10,9 @@ namespace Application.Services
 {
     public class FuncionarioService : IFuncionarioService
     {
-        private readonly IFuncionarioRepositorio _repository;
+        private readonly IFuncionarioRepository _repository;
 
-        public FuncionarioService(IFuncionarioRepositorio repository)
+        public FuncionarioService(IFuncionarioRepository repository)
         {
             _repository = repository;
         }
@@ -42,16 +42,64 @@ namespace Application.Services
             };
         }
 
-        public Task<IEnumerable<FuncionarioOutputDto>> GetAllAsync()
-            => throw new NotImplementedException();
+        public async Task<IEnumerable<FuncionarioOutputDto>> GetAllAsync()
+        {
+            var funcionarios = await _repository.GetAllAsync();
 
-        public Task<FuncionarioOutputDto> GetByIdAsync(int id)
-            => throw new NotImplementedException();
+            return funcionarios.Select(f => new FuncionarioOutputDto
+            {
+                Id = f.Id,
+                Nome = f.Nome,
+                Cargo = f.Cargo,
+                Salario = f.Salario,
+                Departamento = f.Departamento,
+                Ativo = f.Ativo
+            });
+        }
 
-        public Task UpdateAsync(int id, FuncionarioInputDto dto)
-            => throw new NotImplementedException();
+        public async Task<FuncionarioOutputDto> GetByIdAsync(int id)
+        {
+            var funcionario = await _repository.GetByIdAsync(id);
 
-        public Task DeleteAsync(int id)
-       => throw new NotImplementedException();
+            if (funcionario == null)
+                throw new KeyNotFoundException($"Funcionário com Id {id} não encontrado.");
+
+            return new FuncionarioOutputDto
+            {
+                Id = funcionario.Id,
+                Nome = funcionario.Nome,
+                Cargo = funcionario.Cargo,
+                Salario = funcionario.Salario,
+                Departamento = funcionario.Departamento,
+                Ativo = funcionario.Ativo
+            };
+        }
+
+        public async Task UpdateAsync(int id, FuncionarioInputDto dto)
+        {
+            var funcionario = await _repository.GetByIdAsync(id);
+
+            if (funcionario == null)
+                throw new KeyNotFoundException($"Funcionário com Id {id} não encontrado.");
+
+            funcionario.Nome = dto.Nome;
+            funcionario.Cargo = dto.Cargo;
+            funcionario.Salario = dto.Salario;
+            funcionario.Departamento = dto.Departamento;
+
+            _repository.Update(funcionario);
+            await _repository.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var funcionario = await _repository.GetByIdAsync(id);
+
+            if (funcionario == null)
+                throw new KeyNotFoundException($"Funcionário com Id {id} não encontrado.");
+
+            _repository.Delete(funcionario);
+            await _repository.SaveChangesAsync();
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Domain.Interfaces
 {
-    public interface IFuncionarioRepositorio
+    public interface IFuncionarioRepository
     {
         Task<IEnumerable<Funcionario>> GetAllAsync();
         Task<Funcionario> GetByIdAsync(int id);
