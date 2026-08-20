@@ -1,4 +1,4 @@
-﻿using _04_Domain.Entities;
+﻿using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

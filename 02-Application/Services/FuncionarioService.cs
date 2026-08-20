@@ -1,17 +1,18 @@
-﻿using _02_Application.DTos;
-using _04_Domain.Entities;
+﻿using Application.DTos;
+using Application.Interfaces;
+using Domain.Entities;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace _02_Application.Services
+namespace Application.Services
 {
-    public class FuncionarioService
+    public class FuncionarioService : IFuncionarioService
     {
-        private readonly IFuncionarioRepository _repository;
+        private readonly IFuncionarioRepositorio _repository;
 
-        public FuncionarioService(IFuncionarioRepository repository)
+        public FuncionarioService(IFuncionarioRepositorio repository)
         {
             _repository = repository;
         }
@@ -51,6 +52,6 @@ namespace _02_Application.Services
             => throw new NotImplementedException();
 
         public Task DeleteAsync(int id)
-            => throw new NotImplementedException(); dotnet build
+            => throw new NotImplementedException();
     }
 }
