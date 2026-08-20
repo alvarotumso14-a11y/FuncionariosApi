@@ -1,4 +1,4 @@
-﻿namespace _05_Tests;
+﻿namespace Tests;
 
 public class UnitTest1
 {

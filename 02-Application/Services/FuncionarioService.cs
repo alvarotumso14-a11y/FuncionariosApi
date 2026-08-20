@@ -52,6 +52,6 @@ namespace Application.Services
             => throw new NotImplementedException();
 
         public Task DeleteAsync(int id)
-            => throw new NotImplementedException();
+       => throw new NotImplementedException();
     }
 }
