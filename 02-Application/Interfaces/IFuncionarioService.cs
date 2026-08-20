@@ -1,9 +1,9 @@
-﻿using _02_Application.DTos;
+﻿using Application.DTos;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace _02_Application.Interfaces
+namespace Application.Interfaces
 {
     public interface IFuncionarioService
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace _02_Application.DTos
+namespace Application.DTos
 {
     public class FuncionarioOutputDto
     {
